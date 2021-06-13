@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
 
 @Entity
@@ -25,6 +26,7 @@ public class FolderItemEntity {
     private Integer folderId;
 
     @ManyToOne
+    @MapsId("folderId")
     @JoinColumn(name = "folder_id", insertable = false, updatable = false)
     private FolderEntity folder;
 
@@ -54,5 +56,21 @@ public class FolderItemEntity {
 
     public void setFolderId(Integer folderId) {
         this.folderId = folderId;
+    }
+
+    public FolderEntity getFolder() {
+        return folder;
+    }
+
+    public void setFolder(FolderEntity folder) {
+        this.folder = folder;
+    }
+
+    public ItemEntity getItem() {
+        return item;
+    }
+
+    public void setItem(ItemEntity item) {
+        this.item = item;
     }
 }
