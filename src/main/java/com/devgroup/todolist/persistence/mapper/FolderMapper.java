@@ -14,12 +14,15 @@ public interface FolderMapper {
 
     @Mappings({
             @Mapping(source = "folderId", target = "id"),
-            @Mapping(source = "creationDate", target = "date"),
-            @Mapping(source = "allItems", target = "items"),
+            @Mapping(source = "creationDate", target = "date")
+            /*@Mapping(source = "allItems", target = "items"),*/
     })
     Folder toFolder(FolderEntity folderEntity);
     List<Folder> toFolder(List<FolderEntity> folders);
 
     @InheritInverseConfiguration
+    @Mappings({
+            @Mapping(target = "allItems", ignore = true),
+    })
     FolderEntity toFolderEntity(Folder folder);
 }

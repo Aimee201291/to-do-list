@@ -15,8 +15,8 @@ import java.util.List;
 public interface FolderItemMapper {
 
     @Mappings({
-            @Mapping(source = "itemId", target = "iId")
-            /*@Mapping(source = "folderId", target = "fId"),*/
+            @Mapping(source = "itemId", target = "iId"),
+            @Mapping(source = "folderId", target = "fId"),
     })
     FolderItem toFolderItem(FolderItemEntity folderItemEntity);
 
@@ -24,7 +24,7 @@ public interface FolderItemMapper {
     @Mappings({
             @Mapping(target = "folder", ignore = true),
             @Mapping(target = "item", ignore = true),
-            @Mapping(target = "folderId", ignore = true),
+            /*@Mapping(target = "folderId", ignore = true),*/
     })
     FolderItemEntity toFolderItemEntity(FolderItem folderItem);
 

@@ -11,5 +11,6 @@ public interface ItemDomainRepository {
     List<Item> getAll();
     Optional<Item> getItem(int id);
     Item save(Item item);
+    Item update(int id);
     void delete(int id);
 }

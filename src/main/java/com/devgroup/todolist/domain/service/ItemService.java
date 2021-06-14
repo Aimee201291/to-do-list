@@ -26,6 +26,10 @@ public class ItemService {
         return itemDomainRepository.save(item);
     }
 
+    public Item update(int id) {
+        return itemDomainRepository.update(id);
+    }
+
     public boolean delete(int itemId) {
         if (getItem(itemId).isPresent()) {
             itemDomainRepository.delete(itemId);

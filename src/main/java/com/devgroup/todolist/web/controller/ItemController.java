@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -38,6 +39,11 @@ public class ItemController {
     @PostMapping("/save")
     public ResponseEntity<Item> save(@RequestBody Item item) {
         return new ResponseEntity<>(itemService.save(item), HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Item> update(@PathVariable("id") int itemId) {
+        return new ResponseEntity<>(itemService.update(itemId), HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")

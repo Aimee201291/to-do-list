@@ -8,7 +8,7 @@ public class Folder {
     private int id;
     private String name;
     private LocalDateTime date;
-    private List<FolderItem> items;
+    //private List<FolderItem> items;
 
     public int getId() {
         return id;
@@ -34,11 +34,11 @@ public class Folder {
         this.date = date;
     }
 
-    public List<FolderItem> getItems() {
+    /*public List<FolderItem> getItems() {
         return items;
     }
 
     public void setItems(List<FolderItem> items) {
         this.items = items;
-    }
+    }*/
 }

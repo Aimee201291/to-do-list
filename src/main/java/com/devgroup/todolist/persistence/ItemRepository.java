@@ -38,6 +38,17 @@ public class ItemRepository implements ItemDomainRepository {
     }
 
     @Override
+    public Item update(int id) {
+        ItemEntity myItem = (itemCrudRepository.findById(id)).get();
+        if (myItem.getDone() == true) {
+            myItem.setDone(false);
+        } else {
+            myItem.setDone(true);
+        }
+        return mapper.toItem(itemCrudRepository.save(myItem));
+    }
+
+    @Override
     public void delete(int itemId) {
         itemCrudRepository.deleteById(itemId);
     }
